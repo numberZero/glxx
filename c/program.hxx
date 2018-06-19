@@ -41,287 +41,287 @@ enum class ShaderInfo : GLenum
 
 inline void AttachShader(ProgramId program, ShaderId shader)
 {
-	glAttachShader((GLuint)program, (GLuint)shader);
+	fn.AttachShader((unsigned)program, (unsigned)shader);
 }
 
-inline void BindAttribLocation(ProgramId program, GLuint index, char const *name)
+inline void BindAttribLocation(ProgramId program, unsigned index, char const *name)
 {
-	glBindAttribLocation((GLuint)program, index, name);
+	fn.BindAttribLocation((unsigned)program, index, name);
 }
 
 /*
 inline void BlendEquationSeparate()
 {
-	return glBlendEquationSeparate(GLenum modeRGB, GLenum modeAlpha;
+	return fn.BlendEquationSeparate(GLenum modeRGB, GLenum modeAlpha;
 }
 */
 inline void CompileShader(ShaderId shader)
 {
-	glCompileShader((GLuint)shader);
+	fn.CompileShader((unsigned)shader);
 }
 
 inline ProgramId CreateProgram()
 {
-	return ProgramId(glCreateProgram());
+	return ProgramId(fn.CreateProgram());
 }
 
 inline ShaderId CreateShader(ShaderType type)
 {
-	return ShaderId(glCreateShader((GLenum)type));
+	return ShaderId(fn.CreateShader((GLenum)type));
 }
 
 inline void DeleteProgram(ProgramId program)
 {
-	return glDeleteProgram((GLuint)program);
+	return fn.DeleteProgram((unsigned)program);
 }
 
 inline void DeleteShader(ShaderId shader)
 {
-	return glDeleteShader((GLuint)shader);
+	return fn.DeleteShader((unsigned)shader);
 }
 
 inline void DetachShader(ProgramId program, ShaderId shader)
 {
-	glDetachShader((GLuint)program, (GLuint)shader);
+	fn.DetachShader((unsigned)program, (unsigned)shader);
 }
 /*
 inline void DisableVertexAttribArray()
 {
-	return glDisableVertexAttribArray();
+	return fn.DisableVertexAttribArray();
 }
 
 inline void DrawBuffers()
 {
-	return glDrawBuffers();
+	return fn.DrawBuffers();
 }
 
 inline void EnableVertexAttribArray()
 {
-	return glEnableVertexAttribArray();
+	return fn.EnableVertexAttribArray();
 }
 
 inline void GetActiveAttrib()
 {
-	return glGetActiveAttrib();
+	return fn.GetActiveAttrib();
 }
 
 inline void GetActiveUniform()
 {
-	return glGetActiveUniform();
+	return fn.GetActiveUniform();
 }
 
 inline void GetAttachedShaders()
 {
-	return glGetAttachedShaders();
+	return fn.GetAttachedShaders();
 }
 
 inline void GetAttribLocation()
 {
-	return glGetAttribLocation();
+	return fn.GetAttribLocation();
 }
 */
-inline void GetProgramInfoLog(ProgramId program, GLsizei bufSize, GLsizei *length, char *buffer)
+inline void GetProgramInfoLog(ProgramId program, int bufSize, int *length, char *buffer)
 {
-	glGetProgramInfoLog((GLuint)program, bufSize, length, buffer);
+	fn.GetProgramInfoLog((unsigned)program, bufSize, length, buffer);
 }
 
-inline void GetProgram(ProgramId program, ProgramInfo what, GLint *result)
+inline void GetProgram(ProgramId program, ProgramInfo what, int *result)
 {
-	glGetProgramiv((GLuint)program, (GLenum)what, result);
+	fn.GetProgramiv((unsigned)program, (GLenum)what, result);
 }
 
-inline void GetShaderInfoLog(ShaderId shader, GLsizei bufSize, GLsizei *length, char *buffer)
+inline void GetShaderInfoLog(ShaderId shader, int bufSize, int *length, char *buffer)
 {
-	glGetShaderInfoLog((GLuint)shader, bufSize, length, buffer);
+	fn.GetShaderInfoLog((unsigned)shader, bufSize, length, buffer);
 }
 
-inline void GetShaderSource(ShaderId shader, GLsizei bufSize, GLsizei *length, char *buffer)
+inline void GetShaderSource(ShaderId shader, int bufSize, int *length, char *buffer)
 {
-	glGetShaderSource((GLuint)shader, bufSize, length, buffer);
+	fn.GetShaderSource((unsigned)shader, bufSize, length, buffer);
 }
 
-inline void GetShader(ShaderId shader, ShaderInfo what, GLint *result)
+inline void GetShader(ShaderId shader, ShaderInfo what, int *result)
 {
-	glGetShaderiv((GLuint)shader, (GLenum)what, result);
+	fn.GetShaderiv((unsigned)shader, (GLenum)what, result);
 }
 
-inline GLint GetUniformLocation(ProgramId program, char const *name)
+inline int GetUniformLocation(ProgramId program, char const *name)
 {
-	return glGetUniformLocation((GLuint)program, name);
+	return fn.GetUniformLocation((unsigned)program, name);
 }
 /*
 inline void GetUniformfv()
 {
-	return glGetUniformfv();
+	return fn.GetUniformfv();
 }
 
 inline void GetUniformiv()
 {
-	return glGetUniformiv();
+	return fn.GetUniformiv();
 }
 
 inline void GetVertexAttribPointerv()
 {
-	return glGetVertexAttribPointerv();
+	return fn.GetVertexAttribPointerv();
 }
 
 inline void GetVertexAttribdv()
 {
-	return glGetVertexAttribdv();
+	return fn.GetVertexAttribdv();
 }
 
 inline void GetVertexAttribfv()
 {
-	return glGetVertexAttribfv();
+	return fn.GetVertexAttribfv();
 }
 
 inline void GetVertexAttribiv()
 {
-	return glGetVertexAttribiv();
+	return fn.GetVertexAttribiv();
 }
 */
 inline bool IsProgram(ProgramId id)
 {
-	return glIsProgram((GLuint)id);
+	return fn.IsProgram((unsigned)id);
 }
 
 inline bool IsShader(ShaderId id)
 {
-	return glIsShader((GLuint)id);
+	return fn.IsShader((unsigned)id);
 }
 
 inline void LinkProgram(ProgramId id)
 {
-	glLinkProgram((GLuint)id);
+	fn.LinkProgram((unsigned)id);
 }
 
-inline void ShaderSource(ShaderId shader, GLint count, char const *const *code, GLint *length = nullptr)
+inline void ShaderSource(ShaderId shader, int count, char const *const *code, int *length = nullptr)
 {
-	glShaderSource((GLuint)shader, count, code, length);
+	fn.ShaderSource((unsigned)shader, count, code, length);
 }
 
 /*
 inline void StencilFuncSeparate()
 {
-	return glStencilFuncSeparate();
+	return fn.StencilFuncSeparate();
 }
 
 inline void StencilMaskSeparate()
 {
-	return glStencilMaskSeparate();
+	return fn.StencilMaskSeparate();
 }
 
 inline void StencilOpSeparate()
 {
-	return glStencilOpSeparate();
+	return fn.StencilOpSeparate();
 }
 */
-template <typename T> void Uniform(GLint location, T x);
-template <typename T> void Uniform(GLint location, T x, T y);
-template <typename T> void Uniform(GLint location, T x, T y, T z);
-template <typename T> void Uniform(GLint location, T x, T y, T z, T w);
-template <GLint N, typename T> void Uniform(GLint location, GLint count, T const *v);
+template <typename T> void Uniform(int location, T x);
+template <typename T> void Uniform(int location, T x, T y);
+template <typename T> void Uniform(int location, T x, T y, T z);
+template <typename T> void Uniform(int location, T x, T y, T z, T w);
+template <int N, typename T> void Uniform(int location, int count, T const *v);
 
-template <> inline void Uniform<GLfloat>(GLint location, GLfloat x) { glUniform1f(location, x); }
-template <> inline void Uniform<GLfloat>(GLint location, GLfloat x, GLfloat y) { glUniform2f(location, x, y); }
-template <> inline void Uniform<GLfloat>(GLint location, GLfloat x, GLfloat y, GLfloat z) { glUniform3f(location, x, y, z); }
-template <> inline void Uniform<GLfloat>(GLint location, GLfloat x, GLfloat y, GLfloat z, GLfloat w) { glUniform4f(location, x, y, z, w); }
-template <> inline void Uniform<1, GLfloat>(GLint location, GLint count, GLfloat const *v) { glUniform1fv(location, count, v); }
-template <> inline void Uniform<2, GLfloat>(GLint location, GLint count, GLfloat const *v) { glUniform2fv(location, count, v); }
-template <> inline void Uniform<3, GLfloat>(GLint location, GLint count, GLfloat const *v) { glUniform3fv(location, count, v); }
-template <> inline void Uniform<4, GLfloat>(GLint location, GLint count, GLfloat const *v) { glUniform4fv(location, count, v); }
+template <> inline void Uniform<float>(int location, float x) { fn.Uniform1f(location, x); }
+template <> inline void Uniform<float>(int location, float x, float y) { fn.Uniform2f(location, x, y); }
+template <> inline void Uniform<float>(int location, float x, float y, float z) { fn.Uniform3f(location, x, y, z); }
+template <> inline void Uniform<float>(int location, float x, float y, float z, float w) { fn.Uniform4f(location, x, y, z, w); }
+template <> inline void Uniform<1, float>(int location, int count, float const *v) { fn.Uniform1fv(location, count, v); }
+template <> inline void Uniform<2, float>(int location, int count, float const *v) { fn.Uniform2fv(location, count, v); }
+template <> inline void Uniform<3, float>(int location, int count, float const *v) { fn.Uniform3fv(location, count, v); }
+template <> inline void Uniform<4, float>(int location, int count, float const *v) { fn.Uniform4fv(location, count, v); }
 
-template <> inline void Uniform<GLint>(GLint location, GLint x) { glUniform1i(location, x); }
-template <> inline void Uniform<GLint>(GLint location, GLint x, GLint y) { glUniform2i(location, x, y); }
-template <> inline void Uniform<GLint>(GLint location, GLint x, GLint y, GLint z) { glUniform3i(location, x, y, z); }
-template <> inline void Uniform<GLint>(GLint location, GLint x, GLint y, GLint z, GLint w) { glUniform4i(location, x, y, z, w); }
-template <> inline void Uniform<1, GLint>(GLint location, GLint count, GLint const *v) { glUniform1iv(location, count, v); }
-template <> inline void Uniform<2, GLint>(GLint location, GLint count, GLint const *v) { glUniform2iv(location, count, v); }
-template <> inline void Uniform<3, GLint>(GLint location, GLint count, GLint const *v) { glUniform3iv(location, count, v); }
-template <> inline void Uniform<4, GLint>(GLint location, GLint count, GLint const *v) { glUniform4iv(location, count, v); }
+template <> inline void Uniform<int>(int location, int x) { fn.Uniform1i(location, x); }
+template <> inline void Uniform<int>(int location, int x, int y) { fn.Uniform2i(location, x, y); }
+template <> inline void Uniform<int>(int location, int x, int y, int z) { fn.Uniform3i(location, x, y, z); }
+template <> inline void Uniform<int>(int location, int x, int y, int z, int w) { fn.Uniform4i(location, x, y, z, w); }
+template <> inline void Uniform<1, int>(int location, int count, int const *v) { fn.Uniform1iv(location, count, v); }
+template <> inline void Uniform<2, int>(int location, int count, int const *v) { fn.Uniform2iv(location, count, v); }
+template <> inline void Uniform<3, int>(int location, int count, int const *v) { fn.Uniform3iv(location, count, v); }
+template <> inline void Uniform<4, int>(int location, int count, int const *v) { fn.Uniform4iv(location, count, v); }
 
-template <GLint N, typename T> void UniformMatrix(GLint location, GLint count, T const *v);
+template <int N, typename T> void UniformMatrix(int location, int count, T const *v);
 
-template <> inline void UniformMatrix<2, GLfloat>(GLint location, GLint count, GLfloat const *v) { glUniformMatrix2fv(location, count, false, v); }
-template <> inline void UniformMatrix<3, GLfloat>(GLint location, GLint count, GLfloat const *v) { glUniformMatrix3fv(location, count, false, v); }
-template <> inline void UniformMatrix<4, GLfloat>(GLint location, GLint count, GLfloat const *v) { glUniformMatrix4fv(location, count, false, v); }
+template <> inline void UniformMatrix<2, float>(int location, int count, float const *v) { fn.UniformMatrix2fv(location, count, false, v); }
+template <> inline void UniformMatrix<3, float>(int location, int count, float const *v) { fn.UniformMatrix3fv(location, count, false, v); }
+template <> inline void UniformMatrix<4, float>(int location, int count, float const *v) { fn.UniformMatrix4fv(location, count, false, v); }
 
 inline void UseProgram(ProgramId program = ProgramId())
 {
-	glUseProgram((GLuint)program);
+	fn.UseProgram((unsigned)program);
 }
 
 inline void ValidateProgram(ProgramId program)
 {
-	glValidateProgram((GLuint)program);
+	fn.ValidateProgram((unsigned)program);
 }
 
-template <typename T> void VertexAttrib(GLuint index, T x);
-template <typename T> void VertexAttrib(GLuint index, T x, T y);
-template <typename T> void VertexAttrib(GLuint index, T x, T y, T z);
-template <typename T> void VertexAttrib(GLuint index, T x, T y, T z, T w);
-template <GLint N, typename T> void VertexAttrib(GLuint index, T const *v);
-template <typename T> void VertexAttribN(GLuint index, T x, T y, T z, T w);
-template <GLint N, typename T> void VertexAttribN(GLuint index, T const *v);
+template <typename T> void VertexAttrib(unsigned index, T x);
+template <typename T> void VertexAttrib(unsigned index, T x, T y);
+template <typename T> void VertexAttrib(unsigned index, T x, T y, T z);
+template <typename T> void VertexAttrib(unsigned index, T x, T y, T z, T w);
+template <int N, typename T> void VertexAttrib(unsigned index, T const *v);
+template <typename T> void VertexAttribN(unsigned index, T x, T y, T z, T w);
+template <int N, typename T> void VertexAttribN(unsigned index, T const *v);
 
-template <> inline void VertexAttrib<GLdouble>(GLuint index, GLdouble x) { glVertexAttrib1d(index, x); }
-template <> inline void VertexAttrib<GLdouble>(GLuint index, GLdouble x, GLdouble y) { glVertexAttrib2d(index, x, y); }
-template <> inline void VertexAttrib<GLdouble>(GLuint index, GLdouble x, GLdouble y, GLdouble z) { glVertexAttrib3d(index, x, y, z); }
-template <> inline void VertexAttrib<GLdouble>(GLuint index, GLdouble x, GLdouble y, GLdouble z, GLdouble w) { glVertexAttrib4d(index, x, y, z, w); }
-template <> inline void VertexAttrib<1, GLdouble>(GLuint index, GLdouble const *v) { glVertexAttrib1dv(index, v); }
-template <> inline void VertexAttrib<2, GLdouble>(GLuint index, GLdouble const *v) { glVertexAttrib2dv(index, v); }
-template <> inline void VertexAttrib<3, GLdouble>(GLuint index, GLdouble const *v) { glVertexAttrib3dv(index, v); }
-template <> inline void VertexAttrib<4, GLdouble>(GLuint index, GLdouble const *v) { glVertexAttrib4dv(index, v); }
+template <> inline void VertexAttrib<double>(unsigned index, double x) { fn.VertexAttrib1d(index, x); }
+template <> inline void VertexAttrib<double>(unsigned index, double x, double y) { fn.VertexAttrib2d(index, x, y); }
+template <> inline void VertexAttrib<double>(unsigned index, double x, double y, double z) { fn.VertexAttrib3d(index, x, y, z); }
+template <> inline void VertexAttrib<double>(unsigned index, double x, double y, double z, double w) { fn.VertexAttrib4d(index, x, y, z, w); }
+template <> inline void VertexAttrib<1, double>(unsigned index, double const *v) { fn.VertexAttrib1dv(index, v); }
+template <> inline void VertexAttrib<2, double>(unsigned index, double const *v) { fn.VertexAttrib2dv(index, v); }
+template <> inline void VertexAttrib<3, double>(unsigned index, double const *v) { fn.VertexAttrib3dv(index, v); }
+template <> inline void VertexAttrib<4, double>(unsigned index, double const *v) { fn.VertexAttrib4dv(index, v); }
 
-template <> inline void VertexAttrib<GLfloat>(GLuint index, GLfloat x) { glVertexAttrib1f(index, x); }
-template <> inline void VertexAttrib<GLfloat>(GLuint index, GLfloat x, GLfloat y) { glVertexAttrib2f(index, x, y); }
-template <> inline void VertexAttrib<GLfloat>(GLuint index, GLfloat x, GLfloat y, GLfloat z) { glVertexAttrib3f(index, x, y, z); }
-template <> inline void VertexAttrib<GLfloat>(GLuint index, GLfloat x, GLfloat y, GLfloat z, GLfloat w) { glVertexAttrib4f(index, x, y, z, w); }
-template <> inline void VertexAttrib<1, GLfloat>(GLuint index, GLfloat const *v) { glVertexAttrib1fv(index, v); }
-template <> inline void VertexAttrib<2, GLfloat>(GLuint index, GLfloat const *v) { glVertexAttrib2fv(index, v); }
-template <> inline void VertexAttrib<3, GLfloat>(GLuint index, GLfloat const *v) { glVertexAttrib3fv(index, v); }
-template <> inline void VertexAttrib<4, GLfloat>(GLuint index, GLfloat const *v) { glVertexAttrib4fv(index, v); }
+template <> inline void VertexAttrib<float>(unsigned index, float x) { fn.VertexAttrib1f(index, x); }
+template <> inline void VertexAttrib<float>(unsigned index, float x, float y) { fn.VertexAttrib2f(index, x, y); }
+template <> inline void VertexAttrib<float>(unsigned index, float x, float y, float z) { fn.VertexAttrib3f(index, x, y, z); }
+template <> inline void VertexAttrib<float>(unsigned index, float x, float y, float z, float w) { fn.VertexAttrib4f(index, x, y, z, w); }
+template <> inline void VertexAttrib<1, float>(unsigned index, float const *v) { fn.VertexAttrib1fv(index, v); }
+template <> inline void VertexAttrib<2, float>(unsigned index, float const *v) { fn.VertexAttrib2fv(index, v); }
+template <> inline void VertexAttrib<3, float>(unsigned index, float const *v) { fn.VertexAttrib3fv(index, v); }
+template <> inline void VertexAttrib<4, float>(unsigned index, float const *v) { fn.VertexAttrib4fv(index, v); }
 
-template <> inline void VertexAttrib<GLshort>(GLuint index, GLshort x) { glVertexAttrib1s(index, x); }
-template <> inline void VertexAttrib<GLshort>(GLuint index, GLshort x, GLshort y) { glVertexAttrib2s(index, x, y); }
-template <> inline void VertexAttrib<GLshort>(GLuint index, GLshort x, GLshort y, GLshort z) { glVertexAttrib3s(index, x, y, z); }
-template <> inline void VertexAttrib<GLshort>(GLuint index, GLshort x, GLshort y, GLshort z, GLshort w) { glVertexAttrib4s(index, x, y, z, w); }
-template <> inline void VertexAttrib<1, GLshort>(GLuint index, GLshort const *v) { glVertexAttrib1sv(index, v); }
-template <> inline void VertexAttrib<2, GLshort>(GLuint index, GLshort const *v) { glVertexAttrib2sv(index, v); }
-template <> inline void VertexAttrib<3, GLshort>(GLuint index, GLshort const *v) { glVertexAttrib3sv(index, v); }
-template <> inline void VertexAttrib<4, GLshort>(GLuint index, GLshort const *v) { glVertexAttrib4sv(index, v); }
+template <> inline void VertexAttrib<short>(unsigned index, short x) { fn.VertexAttrib1s(index, x); }
+template <> inline void VertexAttrib<short>(unsigned index, short x, short y) { fn.VertexAttrib2s(index, x, y); }
+template <> inline void VertexAttrib<short>(unsigned index, short x, short y, short z) { fn.VertexAttrib3s(index, x, y, z); }
+template <> inline void VertexAttrib<short>(unsigned index, short x, short y, short z, short w) { fn.VertexAttrib4s(index, x, y, z, w); }
+template <> inline void VertexAttrib<1, short>(unsigned index, short const *v) { fn.VertexAttrib1sv(index, v); }
+template <> inline void VertexAttrib<2, short>(unsigned index, short const *v) { fn.VertexAttrib2sv(index, v); }
+template <> inline void VertexAttrib<3, short>(unsigned index, short const *v) { fn.VertexAttrib3sv(index, v); }
+template <> inline void VertexAttrib<4, short>(unsigned index, short const *v) { fn.VertexAttrib4sv(index, v); }
 
-template <> inline void VertexAttrib<4, GLbyte>(GLuint index, GLbyte const *v) { glVertexAttrib4bv(index, v); }
-template <> inline void VertexAttrib<4, GLint>(GLuint index, GLint const *v) { glVertexAttrib4iv(index, v); }
-template <> inline void VertexAttrib<4, GLubyte>(GLuint index, GLubyte const *v) { glVertexAttrib4ubv(index, v); }
-template <> inline void VertexAttrib<4, GLushort>(GLuint index, GLushort const *v) { glVertexAttrib4usv(index, v); }
-template <> inline void VertexAttrib<4, GLuint>(GLuint index, const GLuint *v) { glVertexAttrib4uiv(index, v); }
+template <> inline void VertexAttrib<4, sbyte>(unsigned index, sbyte const *v) { fn.VertexAttrib4bv(index, v); }
+template <> inline void VertexAttrib<4, int>(unsigned index, int const *v) { fn.VertexAttrib4iv(index, v); }
+template <> inline void VertexAttrib<4, ubyte>(unsigned index, ubyte const *v) { fn.VertexAttrib4ubv(index, v); }
+template <> inline void VertexAttrib<4, unsigned short>(unsigned index, unsigned short const *v) { fn.VertexAttrib4usv(index, v); }
+template <> inline void VertexAttrib<4, unsigned>(unsigned index, const unsigned *v) { fn.VertexAttrib4uiv(index, v); }
 
-template <> inline void VertexAttribN<GLubyte>(GLuint index, GLubyte x, GLubyte y, GLubyte z, GLubyte w) {	glVertexAttrib4Nub(index, x, y, z, w); }
+template <> inline void VertexAttribN<ubyte>(unsigned index, ubyte x, ubyte y, ubyte z, ubyte w) {	fn.VertexAttrib4Nub(index, x, y, z, w); }
 
-template <> inline void VertexAttribN<4, GLbyte>(GLuint index, GLbyte const *v) { glVertexAttrib4Nbv(index, v); }
-template <> inline void VertexAttribN<4, GLshort>(GLuint index, GLshort const *v) { glVertexAttrib4Nsv(index, v); }
-template <> inline void VertexAttribN<4, GLint>(GLuint index, GLint const *v) { glVertexAttrib4Niv(index, v); }
+template <> inline void VertexAttribN<4, sbyte>(unsigned index, sbyte const *v) { fn.VertexAttrib4Nbv(index, v); }
+template <> inline void VertexAttribN<4, short>(unsigned index, short const *v) { fn.VertexAttrib4Nsv(index, v); }
+template <> inline void VertexAttribN<4, int>(unsigned index, int const *v) { fn.VertexAttrib4Niv(index, v); }
 
-template <> inline void VertexAttribN<4, GLubyte>(GLuint index, GLubyte const *v) { glVertexAttrib4Nubv(index, v); }
-template <> inline void VertexAttribN<4, GLushort>(GLuint index, GLushort const *v) { glVertexAttrib4Nusv(index, v); }
-template <> inline void VertexAttribN<4, GLuint>(GLuint index, GLuint const *v) { glVertexAttrib4Nuiv(index, v); }
+template <> inline void VertexAttribN<4, ubyte>(unsigned index, ubyte const *v) { fn.VertexAttrib4Nubv(index, v); }
+template <> inline void VertexAttribN<4, unsigned short>(unsigned index, unsigned short const *v) { fn.VertexAttrib4Nusv(index, v); }
+template <> inline void VertexAttribN<4, unsigned>(unsigned index, unsigned const *v) { fn.VertexAttrib4Nuiv(index, v); }
 
-inline void VertexAttribPointer(GLuint index, GLint size, Type type, bool normalized, GLsizei stride, void const *pointer)
+inline void VertexAttribPointer(unsigned index, int size, Type type, bool normalized, int stride, void const *pointer)
 {
-	glVertexAttribPointer(index, size, (GLenum)type, normalized, stride, pointer);
+	fn.VertexAttribPointer(index, size, (GLenum)type, normalized, stride, pointer);
 }
 
-inline GLint GetProgram(ProgramId program, ProgramInfo what)
+inline int GetProgram(ProgramId program, ProgramInfo what)
 {
-	GLint result;
+	int result;
 	GetProgram(program, what, &result);
 	return result;
 }
 
-inline GLint GetShader(ShaderId shader, ShaderInfo what)
+inline int GetShader(ShaderId shader, ShaderInfo what)
 {
-	GLint result;
+	int result;
 	GetShader(shader, what, &result);
 	return result;
 }
@@ -357,7 +357,7 @@ void VertexAttribPointer(unsigned index, int size, bool normalized, T const *poi
 #ifndef GLXX_NO_STL
 inline std::string GetProgramInfoLog(ProgramId program)
 {
-	GLint length = GetProgram(program, ProgramInfo::InfoLogLength);
+	int length = GetProgram(program, ProgramInfo::InfoLogLength);
 	std::vector<char> buffer(length);
 	GetProgramInfoLog(program, length, &length, buffer.data());
 	return std::string(buffer.data(), length);
@@ -365,7 +365,7 @@ inline std::string GetProgramInfoLog(ProgramId program)
 
 inline std::string GetShaderInfoLog(ShaderId shader)
 {
-	GLint length = GetShader(shader, ShaderInfo::InfoLogLength);
+	int length = GetShader(shader, ShaderInfo::InfoLogLength);
 	std::vector<char> buffer(length);
 	GetShaderInfoLog(shader, length, &length, buffer.data());
 	return std::string(buffer.data(), length);
@@ -383,7 +383,7 @@ inline void ShaderSource(ShaderId shader, std::string const &code)
 
 inline int GetUniformLocation(ProgramId program, std::string const &name)
 {
-	GLint location = GetUniformLocation(program, name.c_str());
+	int location = GetUniformLocation(program, name.c_str());
 	if (location == -1)
 		throw std::runtime_error("Uniform does not exist");
 	return location;
