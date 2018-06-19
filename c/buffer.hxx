@@ -49,7 +49,7 @@ enum class BufferPointer : GLenum
 	MapPointer = GL_BUFFER_MAP_POINTER,
 };
 
-enum class QueryId : GLuint { None = 0 };
+struct QueryId : Id { using Id::Id; };
 
 enum class QueryTarget : GLenum
 {
