@@ -63,96 +63,96 @@ enum class QueryTarget : GLenum
 
 void BeginQuery(QueryTarget target, QueryId id)
 {
-	glBeginQuery((GLenum)target, (GLuint)id);
+	fn.BeginQuery((GLenum)target, (unsigned)id);
 }
 
 void BindBuffer(BufferTarget target, BufferId buffer = gl::BufferId())
 {
-	glBindBuffer((GLenum)target, (GLuint)buffer);
+	fn.BindBuffer((GLenum)target, (unsigned)buffer);
 }
 
-void BufferData(BufferTarget target, GLsizeiptr size, void const *data, BufferUsage usage)
+void BufferData(BufferTarget target, std::ptrdiff_t size, void const *data, BufferUsage usage)
 {
-	glBufferData((GLenum)target, size, data, (GLenum)usage);
+	fn.BufferData((GLenum)target, size, data, (GLenum)usage);
 }
 
-void BufferSubData(BufferTarget target, GLintptr offset, GLsizeiptr size, void const *data)
+void BufferSubData(BufferTarget target, std::intptr_t offset, std::ptrdiff_t size, void const *data)
 {
-	glBufferSubData((GLenum)target, offset, size, data);
+	fn.BufferSubData((GLenum)target, offset, size, data);
 }
 
-void DeleteBuffers(GLsizei n, BufferId const *buffers)
+void DeleteBuffers(int n, BufferId const *buffers)
 {
-	glDeleteBuffers((GLsizei)n, (GLuint const *)buffers);
+	fn.DeleteBuffers(n, (unsigned const *)buffers);
 }
 
-void DeleteQueries(GLsizei n, QueryId const *ids)
+void DeleteQueries(int n, QueryId const *ids)
 {
-	glDeleteQueries((GLsizei)n, (GLuint const *)ids);
+	fn.DeleteQueries(n, (unsigned const *)ids);
 }
 
 void EndQuery(QueryTarget target)
 {
-	glEndQuery((GLenum)target);
+	fn.EndQuery((GLenum)target);
 }
 
-void GenBuffers(GLsizei n, BufferId *buffers)
+void GenBuffers(int n, BufferId *buffers)
 {
-	glGenBuffers((GLsizei)n, (GLuint *)buffers);
+	fn.GenBuffers((int)n, (unsigned *)buffers);
 }
 
-void GenQueries(GLsizei n, QueryId *ids)
+void GenQueries(int n, QueryId *ids)
 {
-	glGenQueries((GLsizei)n, (GLuint *)ids);
+	fn.GenQueries((int)n, (unsigned *)ids);
 }
 
 template <typename T> void GetBufferParameter(BufferTarget target, BufferParameter pname, T *params);
 
-template <> void GetBufferParameter<GLint>(BufferTarget target, BufferParameter pname, GLint *params) { glGetBufferParameteriv((GLenum)target, (GLenum)pname, params); }
+template <> void GetBufferParameter<int>(BufferTarget target, BufferParameter pname, int *params) { fn.GetBufferParameteriv((GLenum)target, (GLenum)pname, params); }
 
 void GetBufferPointer(BufferTarget target, BufferPointer pname, void **params)
 {
-	glGetBufferPointerv((GLenum)target, (GLenum)pname, params);
+	fn.GetBufferPointerv((GLenum)target, (GLenum)pname, params);
 }
 
-void GetBufferSubData(BufferTarget target, GLintptr offset, GLsizeiptr size, void *data)
+void GetBufferSubData(BufferTarget target, std::intptr_t offset, std::ptrdiff_t size, void *data)
 {
-	glGetBufferSubData((GLenum)target, offset, size, data);
+	fn.GetBufferSubData((GLenum)target, offset, size, data);
 }
 /*
-void GetQueryObjectiv(QueryId id, GLenum pname, GLint *params)
+void GetQueryObjectiv(QueryId id, GLenum pname, int *params)
 {
-	glGetQueryObjectiv((GLuint)id, (GLenum)pname, params);
+	fn.GetQueryObjectiv((unsigned)id, (GLenum)pname, params);
 }
 
-void GetQueryObjectuiv(QueryId id, GLenum pname, GLuint *params)
+void GetQueryObjectuiv(QueryId id, GLenum pname, unsigned *params)
 {
-	glGetQueryObjectuiv((GLuint)id, (GLenum)pname, params);
+	fn.GetQueryObjectuiv((unsigned)id, (GLenum)pname, params);
 }
 
-void GetQueryiv(QueryTarget target, GLenum pname, GLint *params)
+void GetQueryiv(QueryTarget target, GLenum pname, int *params)
 {
-	glGetQueryiv((GLenum)target, (GLenum)pname, params);
+	fn.GetQueryiv((GLenum)target, (GLenum)pname, params);
 }
 */
 [[nodiscard]] GLboolean IsBuffer(BufferId buffer)
 {
-	return glIsBuffer((GLuint)buffer);
+	return fn.IsBuffer((unsigned)buffer);
 }
 
 [[nodiscard]] GLboolean IsQuery(QueryId id)
 {
-	return glIsQuery((GLuint)id);
+	return fn.IsQuery((unsigned)id);
 }
 
 [[nodiscard]] void *MapBuffer(BufferTarget target, GLenum access)
 {
-	return glMapBuffer((GLenum)target, (GLenum)access);
+	return fn.MapBuffer((GLenum)target, (GLenum)access);
 }
 
 void UnmapBuffer(BufferTarget target)
 {
-	glUnmapBuffer((GLenum)target);
+	fn.UnmapBuffer((GLenum)target);
 }
 
 BufferId GenBuffer()

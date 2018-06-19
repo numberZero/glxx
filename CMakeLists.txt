@@ -4,7 +4,7 @@ list(APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake)
 project(gl++)
 
 add_library(gl++
-	glad/glad.c
+	c/functions.cxx
 )
 
 target_include_directories(gl++ PUBLIC ${CMAKE_SOURCE_DIR})
