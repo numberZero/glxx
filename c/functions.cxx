@@ -661,6 +661,8 @@ void loadAll(Loader load)
 	fn.MultiDrawArraysIndirectCount = reinterpret_cast<Functions::PFnMultiDrawArraysIndirectCount>(load("glMultiDrawArraysIndirectCount"));
 	fn.MultiDrawElementsIndirectCount = reinterpret_cast<Functions::PFnMultiDrawElementsIndirectCount>(load("glMultiDrawElementsIndirectCount"));
 	fn.PolygonOffsetClamp = reinterpret_cast<Functions::PFnPolygonOffsetClamp>(load("glPolygonOffsetClamp"));
+
+	fn.DebugMessageCallback = reinterpret_cast<Functions::PFnDebugMessageCallback>(load("glDebugMessageCallback"));
 }
 
 }

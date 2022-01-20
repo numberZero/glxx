@@ -36,6 +36,7 @@ struct Functions {
 #else
 #define OpenGL_function_pointer *
 #endif
+#define OpenGL_callback_pointer OpenGL_function_pointer
 
 	typedef void (OpenGL_function_pointer PFnFrontFace) (GLenum mode);
 	typedef void (OpenGL_function_pointer PFnHint) (GLenum target, GLenum mode);
@@ -693,7 +694,11 @@ struct Functions {
 	typedef void (OpenGL_function_pointer PFnMultiDrawElementsIndirectCount) (GLenum mode, GLenum type, const void *indirect, std::intptr_t drawcount, int maxdrawcount, int stride);
 	typedef void (OpenGL_function_pointer PFnPolygonOffsetClamp) (float factor, float units, float clamp);
 
+	typedef void (OpenGL_callback_pointer PFnDebugProc) (GLenum source, GLenum type, unsigned id, GLenum severity, std::intptr_t length, const char *message, const void *userParam);
+	typedef void (OpenGL_function_pointer PFnDebugMessageCallback) (PFnDebugProc callback, const void *userParam);
+
 #undef OpenGL_function_pointer
+#undef OpenGL_callback_pointer
 
 	PFnFrontFace FrontFace;
 	PFnHint Hint;
@@ -1350,6 +1355,7 @@ struct Functions {
 	PFnMultiDrawArraysIndirectCount MultiDrawArraysIndirectCount;
 	PFnMultiDrawElementsIndirectCount MultiDrawElementsIndirectCount;
 	PFnPolygonOffsetClamp PolygonOffsetClamp;
+	PFnDebugMessageCallback DebugMessageCallback;
 };
 
 extern Functions fn;
